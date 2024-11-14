@@ -1,5 +1,5 @@
 diff --git a/klippy/chelper/serialqueue.c b/klippy/chelper/serialqueue.c
-index e6810933..67374378 100644
+index e6810933a..673743787 100644
 --- a/klippy/chelper/serialqueue.c
 +++ b/klippy/chelper/serialqueue.c
 @@ -84,6 +84,7 @@ struct serialqueue {
@@ -11,7 +11,7 @@ index e6810933..67374378 100644
  
  #define MIN_RTO 0.025
 diff --git a/klippy/mcu.py b/klippy/mcu.py
-index 68179bdd..25360e73 100644
+index 68179bdd4..25360e733 100644
 --- a/klippy/mcu.py
 +++ b/klippy/mcu.py
 @@ -567,12 +567,17 @@ class MCU:
@@ -51,7 +51,7 @@ index 68179bdd..25360e73 100644
                      # Cheetah boards require RTS to be deasserted
                      # else a reset will trigger the built-in bootloader.
 diff --git a/klippy/serialhdl.py b/klippy/serialhdl.py
-index f3c4ed99..6252ba00 100644
+index f3c4ed990..6252ba002 100644
 --- a/klippy/serialhdl.py
 +++ b/klippy/serialhdl.py
 @@ -3,7 +3,7 @@
@@ -95,7 +95,7 @@ index f3c4ed99..6252ba00 100644
          self.serial_dev = debugoutput
          self.msgparser.process_identify(dictionary, decompress=False)
 diff --git a/src/stm32/Kconfig b/src/stm32/Kconfig
-index e3961176..66030d99 100644
+index e39611764..66030d998 100644
 --- a/src/stm32/Kconfig
 +++ b/src/stm32/Kconfig
 @@ -517,4 +517,8 @@ config STM32_CANBUS_PC2_PC3
@@ -108,7 +108,7 @@ index e3961176..66030d99 100644
 +
  endif
 diff --git a/src/stm32/Makefile b/src/stm32/Makefile
-index 18af2e9d..cf0ede35 100644
+index 18af2e9d7..cf0ede35e 100644
 --- a/src/stm32/Makefile
 +++ b/src/stm32/Makefile
 @@ -29,6 +29,7 @@ CFLAGS-$(CONFIG_MACH_STM32G0) += -mcpu=cortex-m0plus -Ilib/stm32g0/include
@@ -120,7 +120,7 @@ index 18af2e9d..cf0ede35 100644
  
  CFLAGS_klipper.elf += --specs=nano.specs --specs=nosys.specs
 diff --git a/src/stm32/serial.c b/src/stm32/serial.c
-index 19aa048e..0f7c05b3 100644
+index 19aa048ea..0f7c05b3f 100644
 --- a/src/stm32/serial.c
 +++ b/src/stm32/serial.c
 @@ -7,6 +7,8 @@
