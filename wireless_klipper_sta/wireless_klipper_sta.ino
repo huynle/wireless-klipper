@@ -7,15 +7,14 @@
 
  * test: socat -dd pty,link=/tmp/virtualcom,ispeed=b250000,ospeed=b250000,raw,echo=0 TCP4-CONNECT:192.168.4.1:8888,nodelay,forever,interval=1
  */
-
+#include <Arduino.h>
 #include "wireless_klipper_sta.h"
 
 /// @brief firmware_version
 version_t firmware_version = { 0, 0, 2, 3 };
 
 /// @brief default configuration
-struct settings_t moduleSettings
-{
+struct settings_t moduleSettings{
     /// @brief firmware version
     .version = { 0, 0, 2, 3 },
 
@@ -59,13 +58,11 @@ struct settings_t moduleSettings
 };
 
 
-void setup()
-{
+void setup() {
 
     // read modules settings from EEPROM
     bool subsequentLaunch = read_settings();
-    if(!subsequentLaunch)
-    {
+    if (!subsequentLaunch) {
         write_settings(moduleSettings);
     }
 
@@ -93,11 +90,9 @@ void setup()
 }
 
 // the loop function runs over and over again forever
-void loop()
-{
+void loop() {
     bool existClient_tcp2serial = handle_tcp2serial();
-    if(!existClient_tcp2serial)
-    {
+    if (!existClient_tcp2serial) {
         wifi_update();
         handle_httpServer();
     }
